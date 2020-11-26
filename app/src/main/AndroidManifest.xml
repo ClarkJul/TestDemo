@@ -9,22 +9,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".rxbus.test.RxBusSecondActivity"></activity>
-        <activity android:name=".rxbus.test.RxBusFirstActivity">
+        <activity android:name=".test_not_ui_thread_refresh_ui.NotUiActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".test_synchornized.TestSyncActivity">
+<!--            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+        <activity android:name=".rxbus.test.RxBusSecondActivity" />
+        <activity android:name=".rxbus.test.RxBusFirstActivity">
 
+            <!--
+                <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+        </activity>
         <activity
             android:name=".refresh_load.RefreshLoadActivity"
             android:theme="@style/NoTitleAppTheme">
-            <!--            <intent-filter>
-                            <action android:name="android.intent.action.MAIN" />
 
+            <!--
+                            <intent-filter>
+                            <action android:name="android.intent.action.MAIN" />
                             <category android:name="android.intent.category.LAUNCHER" />
-                        </intent-filter>-->
+                        </intent-filter>
+            -->
         </activity>
         <activity android:name=".MainActivity">
 

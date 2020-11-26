@@ -1,0 +1,38 @@
+子线程刷新UI的方法
+1.Handler
+2.runOnUiThread
+3.view.post
+
+2、3原理都是使用handler刷新Ui
+
+    public final void runOnUiThread(Runnable action) {
+        if (Thread.currentThread() != mUiThread) {
+            mHandler.post(action);
+        } else {
+            action.run();
+        }
+    }
+
+    public boolean post(Runnable action) {
+        final AttachInfo attachInfo = mAttachInfo;
+        if (attachInfo != null) {
+            return attachInfo.mHandler.post(action);
+        }
+
+        // Postpone the runnable until we know on which thread it needs to run.
+        // Assume that the runnable will be successfully placed after attach.
+        getRunQueue().post(action);
+        return true;
+    }
+
+    private HandlerActionQueue getRunQueue() {
+        if (mRunQueue == null) {
+            mRunQueue = new HandlerActionQueue();
+        }
+        return mRunQueue;
+    }
+
+ 子线程的ToasT 和 showDialog方法，报错的的原因
+
+ Can't toast on a thread that has not called Looper.prepare()
+ Can't create handler inside thread Thread[Thread-2,5,main] that has not called Looper.prepare()
