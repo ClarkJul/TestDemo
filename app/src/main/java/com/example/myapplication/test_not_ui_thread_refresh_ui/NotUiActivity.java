@@ -11,6 +11,10 @@ import android.widget.Toast;
 
 import com.example.myapplication.R;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
+
 public class NotUiActivity extends AppCompatActivity {
     AlertDialog.Builder builder;
     private AlertDialog alertDialog;
@@ -49,5 +53,25 @@ public class NotUiActivity extends AppCompatActivity {
                 Looper.loop();
             }
         }).start();
+    }
+
+    private void startCallThread(){
+        FutureTask<Integer> futureTask=new FutureTask<Integer>(new MyCallable());
+        new Thread(futureTask).start();
+        try {
+            Integer integer = futureTask.get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+   static class MyCallable implements Callable<Integer>{
+        @Override
+        public Integer call() throws Exception {
+            //逻辑代码
+            return null;
+        }
     }
 }

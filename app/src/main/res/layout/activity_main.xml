@@ -48,4 +48,14 @@
         app:selectType="MULTI"
         app:wordMargin="10dp" />
 
+    <com.example.myapplication.MyProgressBar
+        android:id="@+id/progressbar2"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_margin="10dp"
+        android:max="100"
+        android:progress="80"
+        android:progressDrawable="@drawable/layer_list_progress_drawable" />
+
 </LinearLayout>

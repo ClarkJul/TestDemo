@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.SparseArray;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -79,6 +80,10 @@ public class MainActivity extends AppCompatActivity implements LabelsView.OnLabe
 
         labelsView.clearAllSelect();
 
+
+        SparseArray<String> array=new SparseArray();
+
+        startActivity();
     }
 
     @Override
